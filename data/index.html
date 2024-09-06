@@ -1,0 +1,42 @@
+<!-- Complete project details: https://randomnerdtutorials.com/esp32-web-server-websocket-sliders/ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ich möchte in Sachsen leben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="topnav">
+        <h1>Multiple Sliders</h1>
+    </div>
+    <div class="content">
+        <div class="card-grid">
+            <div class="card">
+                <p class="card-title">Fader 1</p>
+                <p class="switch">
+                    <input type="range" onchange="updateSliderPWM(this)" id="slider0" min="1000" max="2000" step="1" value ="1500" class="slider">
+                </p>
+                <p class="state">Thrust PPM: <span id="sliderValue0">1500</span></p>
+            </div>
+            <div class="card">
+                <p class="card-title"> Fader 2</p>
+                <p class="switch">
+                    <input type="range" onchange="updateSliderPWM(this)" id="slider1" min="0" max="100" step="1" value ="50" class="slider">
+                </p>
+                <p class="state">Direction: <span id="sliderValue1">50</span> &percnt;</p>
+            </div>
+            <div class="card">
+                <p class="card-title"> Fader 3</p>
+                <p class="switch">
+                    <input type="range" onchange="updateSliderPWM(this)" id="slider2" min="1000" max="2000" step="1" value ="1500" class="slider">
+                </p>
+                <p class="state">Redundant: <span id="sliderValue2">1500</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
