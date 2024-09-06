@@ -31,9 +31,9 @@ In the setup function, Important peripherals and API handlers are created ;
 1. Serial communication : 9600 Baud Rate, communication through the USB cable connected to the PC
 2. Little FS : File system
 3. WiFi Acces point : So that wireless comunication is first made possible
-  3.1 Wifi ID : EmirhanÜZÜM!!!
-  3.2 Wifi password : kannmanmachen
-  3.3 Website URL : http://192.168.4.1
+  1. Wifi ID : EmirhanÜZÜM!!!
+  2. Wifi password : kannmanmachen
+  3. Website URL : http://192.168.4.1
 4. Websocket : This is needed for the communication between the ESP32 firmware and the ESPAsyncWebServer
 5. Webserver : Hosting the http URL and serving the .html file
 6. Timer : Timer is initialized and an interrupt routine is attached to it
