@@ -30,7 +30,7 @@ AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
 
 void IRAM_ATTR onTimer() {
-  // Trigger the task to generate the PPM signal
+  // Trigger the tasks to generate the PPM signal
   xSemaphoreGiveFromISR(timerSemaphore, NULL);
 }
 
@@ -89,14 +89,14 @@ void GradualValueChangeTask(void *parameter) {
     xSemaphoreTake(ppmMutex, portMAX_DELAY);
     ppmValues[channel] = transientValue;
     xSemaphoreGive(ppmMutex);
-    // Wait for 5 timer interrupts)
-    while (tickCounter < 50){
+    // Wait for 5 timer interrupts
+    while (tickCounter < 5){
       unsigned long currentTime = millis();
       if (xSemaphoreTake(timerSemaphore, portMAX_DELAY) == pdTRUE) {
       tickCounter++;
       xSemaphoreGive(timerSemaphore);
       unsigned long elapsedTime = currentTime - previousTime;
-      Serial.printf("Time difference: %lu ms\n", elapsedTime); // Print the time difference
+      // Serial.printf("Time difference: %lu ms\n", elapsedTime); // Print the time difference, for debug purposes
       previousTime = currentTime;
       }
     }
@@ -188,13 +188,12 @@ void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType 
 
 void setup() {
   // Disabling watchdog timers. JUST FOR DEBUGGING
-  disableCore0WDT();
-  disableCore1WDT();
-  disableLoopWDT();
+  // disableCore0WDT();
+  // disableCore1WDT();
+  // disableLoopWDT();
   
   // Initialize serial communication
   Serial.begin(9600);
-  while(!Serial);
   delay(1000);
   Serial.println("Initialization complete!");
   // Initialize LittleFS (File system for microcontrollers)
