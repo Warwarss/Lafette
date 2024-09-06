@@ -14,4 +14,20 @@ Before starting to use it:
 11. Configure the upload ports in platform.ini file, Example : monitor_port = COM5
 12. ESP32-S3 has two "USB" ports named "USB" and "UART" on the board. I suggest using the port named "USB"
 
-    
+I would suggest you to read or use this as a referance for dealing with the FREERTOS system
+https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/system/freertos_idf.html
+ESP32 has a good referance and documentation availability
+
+Explanation of the code
+
+PPM signal generation function is < void generatePPM(int Microseconds) > 
+this function is called periodically by the FREERTOS Task < void generatePPMTask(void *parameter) >
+function is called periodically with the help of the timer. The timer initialization is
+  timer = timerBegin(0, 80, true);
+  timerAttachInterrupt(timer, &onTimer, true);
+  timerAlarmWrite(timer, 20000, true);
+  timerAlarmEnable(timer);
+It is also possible to create another timer when needed, the period of the timer is set in the timerAlarmWrite() function
+
+Wifi ID : EmirhanÜZÜM!!!
+Wifi password : kannmanmachen
