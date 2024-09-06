@@ -28,13 +28,13 @@ https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/a
 It is also possible to create another timer when needed, the period of the timer is set in the timerAlarmWrite() function
 
 In the setup function, Important peripherals and API handlers are created ;
-Serial communication : 9600 Baud Rate, communication through the USB cable connected to the PC
-Little FS : File system
-WiFi Acces point : So that wireless comunication is first made possible
+1. Serial communication : 9600 Baud Rate, communication through the USB cable connected to the PC
+2. Little FS : File system
+3. WiFi Acces point : So that wireless comunication is first made possible
   Wifi ID : EmirhanÜZÜM!!!
   Wifi password : kannmanmachen
-Websocket : This is needed for the communication between the ESP32 firmware and the ESPAsyncWebServer
-Webserver : Hosting the http URL and serving the .html file
-Timer : Timer is initialized and an interrupt routine is attached to it
-LEDC : This is a hardware peripheral built into the SoC. It is needed to generate the PPM signals, DONT MESS WITH THE SETUP
+4. Websocket : This is needed for the communication between the ESP32 firmware and the ESPAsyncWebServer
+5. Webserver : Hosting the http URL and serving the .html file
+6. Timer : Timer is initialized and an interrupt routine is attached to it
+7. LEDC : This is a hardware peripheral built into the SoC. It is needed to generate the PPM signals, DONT MESS WITH THE SETUP
 
