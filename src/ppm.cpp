@@ -89,7 +89,7 @@ void GradualValueChangeTask(void *parameter) {
     xSemaphoreTake(ppmMutex, portMAX_DELAY);
     ppmValues[channel] = transientValue;
     xSemaphoreGive(ppmMutex);
-    // Wait for 5 timer interrupts (it is a 100 ms delay)
+    // Wait for 5 timer interrupts)
     while (tickCounter < 50){
       unsigned long currentTime = millis();
       if (xSemaphoreTake(timerSemaphore, portMAX_DELAY) == pdTRUE) {
